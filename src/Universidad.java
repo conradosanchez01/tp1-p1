@@ -34,9 +34,8 @@ public class Universidad {
         }
     }
 
-    
-    //muestra todos los miembros
-   
+    // muestra todos los miembros
+
     public void listarMiembros() {
         if (inicio == null) {
             System.out.println("La universidad no tiene miembros cargados.");
@@ -51,15 +50,14 @@ public class Universidad {
         }
     }
 
-
-    //busca miembro dni
+    // busca miembro dni
     public MiembroUniversidad buscarPorDocumento(String documento) {
         NodoMiembro aux = inicio;
         while (aux != null) {
             if (aux.dato instanceof Persona) {
-             Persona p = (Persona) aux.dato;
-             if (p.getDocumento().equals(documento)) {
-                   return aux.dato;
+                Persona p = (Persona) aux.dato;
+                if (p.getDocumento().equals(documento)) {
+                    return aux.dato;
                 }
             }
             aux = aux.siguiente;
@@ -67,9 +65,8 @@ public class Universidad {
         return null;
     }
 
-   
     // busca miembro por estudiante,profesor,personal
-  
+
     public void buscarPorRol(String rol) {
         NodoMiembro aux = inicio;
         boolean encontrado = false;

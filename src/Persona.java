@@ -21,7 +21,7 @@ public class Persona {
     public void setNombre(String nombre) {
         if (nombre == null)
             throw new IllegalArgumentException("el nombre no puede estar vacio");
-     this.nombre=nombre; 
+        this.nombre = nombre;
     }
 
     public String getApellido() {
@@ -57,22 +57,22 @@ public class Persona {
         this.documento = documento;
     }
 
-
     @Override
     public String toString() {
-        return nombre + " " + apellido + "-DNI: " + documento ;
+        return nombre + " " + apellido + "-DNI: " + documento;
     }
 
- @Override
+    @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Persona)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Persona))
+            return false;
         Persona p = (Persona) o;
         return documento.equals(p.documento);
     }
 
-
-     @Override
+    @Override
     public int hashCode() {
         return documento.hashCode();
     }

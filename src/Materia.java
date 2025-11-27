@@ -1,23 +1,22 @@
 public class Materia {
-    
-private String materiaNombre;
-private Profesor profesor;
 
- public Materia(String materiaNombre, Profesor profesor) {
+    private String materiaNombre;
+    private Profesor profesor;
+
+    public Materia(String materiaNombre, Profesor profesor) {
         this.materiaNombre = materiaNombre;
         this.profesor = profesor;
     }
 
-
-
     public String getMateriaNombre() {
-    return materiaNombre;
-    }
-    public void setMateriaNombre(String materiaNombre) {
-    this.materiaNombre = materiaNombre;
+        return materiaNombre;
     }
 
-  public Profesor getProfesor() {
+    public void setMateriaNombre(String materiaNombre) {
+        this.materiaNombre = materiaNombre;
+    }
+
+    public Profesor getProfesor() {
         return profesor;
     }
 
@@ -25,15 +24,9 @@ private Profesor profesor;
         this.profesor = profesor;
     }
 
-
- @Override
+    @Override
     public String toString() {
         return materiaNombre + " (Profesor: " + profesor.getNombre() + ")";
     }
-
-
-
-
-
 
 }

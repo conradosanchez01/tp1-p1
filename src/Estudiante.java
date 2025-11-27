@@ -48,9 +48,9 @@ public class Estudiante extends Persona implements MiembroUniversidad {
   @Override
   public String obtenerInformacionCompleta() {
     return "Estudiante:" + getNombre() + " " + getApellido() +
-    " -carrera:" + carrera +
-    " -promedio:" + promedio +
-    " -materias:" + materias;
+        " -carrera:" + carrera +
+        " -promedio:" + promedio +
+        " -materias:" + materias;
   }
 
   @Override
