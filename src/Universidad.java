@@ -45,7 +45,7 @@ public class Universidad {
         NodoMiembro aux = inicio;
         while (aux != null) {
             System.out.println(aux.dato.obtenerInformacionCompleta());
-            System.out.println("---------------");
+            System.out.println("--");
             aux = aux.siguiente;
         }
     }
@@ -74,7 +74,7 @@ public class Universidad {
         while (aux != null) {
             if (aux.dato.obtenerRol().equalsIgnoreCase(rol)) {
                 System.out.println(aux.dato.obtenerInformacionCompleta());
-                System.out.println("-------------");
+              
                 encontrado = true;
             }
             aux = aux.siguiente;

@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
 
         Universidad uni = new Universidad();
 
@@ -22,22 +22,22 @@ public class App {
         uni.agregarMiembro(per1);
         uni.agregarMiembro(per2);
 
-        System.out.println(" ------------- "); // polimorf
-        System.out.println(" todos los miembros ");
+        System.out.println("----------------------- "); // polimorf
+        System.out.println("Todos los miembros: ");
         uni.listarMiembros();
 
-        System.out.println(" ------------- ");
-        System.out.println("\n estudiantes ");
+        
+        System.out.println("Solo estudiantes ");
         uni.buscarPorRol("Estudiante");
 
-        System.out.println(" ------------- ");
-        System.out.println("\n Profesores ");
+        System.out.println("------------- ");
+        System.out.println("SOlo Profesores ");
         uni.buscarPorRol("Profesor");
 
-        System.out.println(" ------------- ");
-        System.out.println("\n Personal ");
+         System.out.println("------------- ");
+        System.out.println("Solo Personal ");
         uni.buscarPorRol("Personal");
-
+System.out.println("----------------------- ");
         // Buscar miembro por documento
         MiembroUniversidad encontrado = uni.buscarPorDocumento("25000333");
         if (encontrado != null) {
