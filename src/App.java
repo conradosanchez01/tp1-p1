@@ -69,6 +69,41 @@ public class App {
     System.out.println("Cantidad de estudiantes en Ingeniería en Sistemas (recursivo): " +
                    uni.contarEstudiantesRecursivo("Ingeniería en Sistemas"));
 
+
+
+String docBuscar = "45000111"; // dni de lucas
+Estudiante estRec = uni.buscarEstudianteRecursivo(docBuscar);
+Estudiante estIter = uni.buscarEstudianteIterativo(docBuscar);
+
+System.out.println("\n=== BÚSQUEDA DE ESTUDIANTE POR DOCUMENTO ===");
+System.out.println("Recursivo: " + (estRec != null ? estRec.obtenerInformacionCompleta() : "No encontrado"));
+System.out.println("Iterativo: " + (estIter != null ? estIter.obtenerInformacionCompleta() : "No encontrado"));
+
+
+
+
+// Array de estudiantes a ordenar
+Estudiante[] listaEstudiantes = {e1, e2};
+
+// Ordenamos por apellido
+Estudiante[] estudiantesOrdenados = Universidad.ordenarEstudiantesPorApellido(listaEstudiantes);
+
+System.out.println("\n=== ESTUDIANTES ORDENADOS POR APELLIDO ===");
+for (Estudiante e : estudiantesOrdenados) {
+    System.out.println(e.getApellido() + ", " + e.getNombre());
+}
+
+//bscamos un estudiante por apellido
+String apellidoBuscar = "Martinez";
+int indice = Universidad.busquedaBinariaEstudiantes(estudiantesOrdenados, apellidoBuscar);
+
+System.out.println("\n=== BÚSQUEDA BINARIA POR APELLIDO ===");
+if (indice != -1) {
+    System.out.println("Estudiante encontrado: " + estudiantesOrdenados[indice].obtenerInformacionCompleta());
+} else {
+    System.out.println("No se encontró ningún estudiante con apellido " + apellidoBuscar);
+}
+
 }
 
 

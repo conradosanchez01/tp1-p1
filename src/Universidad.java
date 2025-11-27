@@ -120,18 +120,84 @@ public int contarEstudiantesIterativo(String carrera) {
         aux = aux.siguiente;
     }
     return count;
+
 }
 
 
+// Método público que llama al helper recursivo
+public Estudiante buscarEstudianteRecursivo(String documento) {
+    return buscarEstudianteRecursivoHelper(inicio, documento);
+}
+
+// Helper recursivo que recorre la lista
+private Estudiante buscarEstudianteRecursivoHelper(NodoMiembro nodo, String documento) {
+    if (nodo == null) return null; // caso base: fin de la lista
+    if (nodo.dato instanceof Estudiante) {
+        Estudiante e = (Estudiante) nodo.dato;
+        if (e.getDocumento().equals(documento)) {
+            return e;
+        }
+    }
+    return buscarEstudianteRecursivoHelper(nodo.siguiente, documento);
+
+
+}
+
+
+public Estudiante buscarEstudianteIterativo(String documento) {
+    NodoMiembro aux = inicio;
+    while (aux != null) {
+        if (aux.dato instanceof Estudiante) {
+            Estudiante e = (Estudiante) aux.dato;
+            if (e.getDocumento().equals(documento)) {
+                return e;
+            }
+        }
+        aux = aux.siguiente;
+    }
+    return null;
+}
+
+
+  public static Estudiante[] ordenarEstudiantesPorApellido(Estudiante[] estudiantes) {
+        int n = estudiantes.length;
+        for (int i = 0; i < n - 1; i++) {
+            int indiceMinimo = i;
+            for (int j = i + 1; j < n; j++) {
+                if (estudiantes[j].getApellido().compareTo(estudiantes[indiceMinimo].getApellido()) < 0) {
+                    indiceMinimo = j;
+                }
+            }
+            if (indiceMinimo != i) {
+                Estudiante temp = estudiantes[i];
+                estudiantes[i] = estudiantes[indiceMinimo];
+                estudiantes[indiceMinimo] = temp;
+            }
+        }
+        return estudiantes;
+    }
 
 
 
+public static int busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido) {
+    int inicio = 0;
+    int fin = estudiantes.length - 1;
 
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+        int comparacion = estudiantes[medio].getApellido().compareToIgnoreCase(apellido);
 
+        if (comparacion == 0) {
+            return medio; //encontrado, devuelve el indice
+        } else if (comparacion < 0) {
+            inicio = medio + 1; //buscar en la mitad der
+        } else {
+            fin = medio - 1; //busca en la mitad izq
+        }
+    }
 
-
-
-
+    return -1; //no encontro
+}
 
 
 
