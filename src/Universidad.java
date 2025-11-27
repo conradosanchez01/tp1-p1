@@ -1,6 +1,6 @@
 
 public class Universidad {
-
+//lista enlazada de miembros 
     private class NodoMiembro {
         MiembroUniversidad dato;
         NodoMiembro siguiente;
@@ -34,7 +34,7 @@ public class Universidad {
         }
     }
 
-    // muestra todos los miembros
+    // recorre y muestra todos los miembros de la lista
 
     public void listarMiembros() {
         if (inicio == null) {
@@ -50,7 +50,7 @@ public class Universidad {
         }
     }
 
-    // busca miembro dni
+    // busca miembro x dni (metodo iterativo)
     public MiembroUniversidad buscarPorDocumento(String documento) {
         NodoMiembro aux = inicio;
         while (aux != null) {
@@ -85,14 +85,13 @@ public class Universidad {
         }
     }
 
-
-
 // version recursiva
+//cuenta cuantos estudiantes pertenecen a una carrera
 public int contarEstudiantesRecursivo(String carrera) {
     return contarEstudiantesRecursivoHelper(inicio, carrera);
 }
 
-// recursivo que recorre la lista
+// helperrecursivo que recorre la lista nodo x nodo
 private int contarEstudiantesRecursivoHelper(NodoMiembro nodo, String carrera) {
     if (nodo == null) return 0; // caso base: fin de la lista
     int count = 0;
@@ -106,7 +105,7 @@ private int contarEstudiantesRecursivoHelper(NodoMiembro nodo, String carrera) {
 }
 
 
-// iterativa
+// iterativa cuenta estudiantes que pertenecen a una carrera
 public int contarEstudiantesIterativo(String carrera) {
     int count = 0;
     NodoMiembro aux = inicio;
@@ -129,7 +128,7 @@ public Estudiante buscarEstudianteRecursivo(String documento) {
     return buscarEstudianteRecursivoHelper(inicio, documento);
 }
 
-// Helper recursivo que recorre la lista
+// Helper recursivo que recorre y busca estudiante en la lista
 private Estudiante buscarEstudianteRecursivoHelper(NodoMiembro nodo, String documento) {
     if (nodo == null) return null; // caso base: fin de la lista
     if (nodo.dato instanceof Estudiante) {
@@ -143,7 +142,7 @@ private Estudiante buscarEstudianteRecursivoHelper(NodoMiembro nodo, String docu
 
 }
 
-
+//Busca un estudiante por documento utilizando método iterativo
 public Estudiante buscarEstudianteIterativo(String documento) {
     NodoMiembro aux = inicio;
     while (aux != null) {
@@ -158,16 +157,17 @@ public Estudiante buscarEstudianteIterativo(String documento) {
     return null;
 }
 
-
+//ordena un arreglo de estudiantes por apellido usando selection sort.
   public static Estudiante[] ordenarEstudiantesPorApellido(Estudiante[] estudiantes) {
         int n = estudiantes.length;
         for (int i = 0; i < n - 1; i++) {
             int indiceMinimo = i;
+               // Buscar el menor apellido a partir de i
             for (int j = i + 1; j < n; j++) {
                 if (estudiantes[j].getApellido().compareTo(estudiantes[indiceMinimo].getApellido()) < 0) {
                     indiceMinimo = j;
                 }
-            }
+            } // Intercambio
             if (indiceMinimo != i) {
                 Estudiante temp = estudiantes[i];
                 estudiantes[i] = estudiantes[indiceMinimo];
@@ -178,7 +178,8 @@ public Estudiante buscarEstudianteIterativo(String documento) {
     }
 
 
-
+//Realiza busqueda binaria sobre un arreglo de estudiantes ordenado por apellido
+//Devuelve el indice donde se encontro el apellido o -1 si no existe
 public static int busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido) {
     int inicio = 0;
     int fin = estudiantes.length - 1;

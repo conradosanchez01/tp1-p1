@@ -10,7 +10,7 @@ public class App {
                                       "Medicina", 15, "Anatomía y Fisiología");
 
        
-        // Materias con notas
+        // creacion de materias con notas y profesores asignados
       
         Materia m1 = new Materia("Álgebra", prof1, 8.5);
         Materia m2 = new Materia("Cálculo", prof1, 9.0);
@@ -18,7 +18,7 @@ public class App {
         Materia m4 = new Materia("Fisiología", prof2, 8.0);
 
        
-        // Estudiantes con array de materias
+        // creacion de estudiantes, c/u con array de materias
        
         Materia[] materiasLucas = {m1, m2};
         Estudiante e1 = new Estudiante("Lucas", "Perez", 20, "45000111",
@@ -29,13 +29,13 @@ public class App {
                                        "Medicina", materiasMaria);
 
      
-        // Personal
+        // creacion de personal
     
         Personal per1 = new Personal("Marta", "Lopez", 38, "40000444",
                                      "Administración", "Secretaria", "2015");
 
        
-        // Universidad y agregamos miembros
+        // crear Universidad y agregar los miembros
     
         Universidad uni = new Universidad();
         uni.agregarMiembro(e1);
@@ -45,13 +45,13 @@ public class App {
         uni.agregarMiembro(per1);
 
        
-        // Listamos todos los miembros
+        // Listamos todos los miembros(polimorfismo)
         
         System.out.println("=== LISTA DE MIEMBROS ===");
         uni.listarMiembros();
 
        
-        // Mostramos promedios iterativo y recursivo
+        // calculamos y mostramos promedios iterativo y recursivo
         
         System.out.println("\n=== PROMEDIOS DE ESTUDIANTES ===");
         for (MiembroUniversidad m : new MiembroUniversidad[]{e1, e2}) {
@@ -61,7 +61,8 @@ public class App {
             System.out.println("Promedio recursivo: " + est.obtenerPromedioRecursivo());
         }
     
-    
+    //contar estudiantes por carrera iterativo y recursivo
+
  System.out.println("--");
     System.out.println("Cantidad de estudiantes en Ingeniería en Sistemas (iterativo): " +
                    uni.contarEstudiantesIterativo("Ingeniería en Sistemas"));
@@ -70,7 +71,7 @@ public class App {
                    uni.contarEstudiantesRecursivo("Ingeniería en Sistemas"));
 
 
-
+//Busqueda de estudiante por documento iterarivo y recursivo
 String docBuscar = "45000111"; // dni de lucas
 Estudiante estRec = uni.buscarEstudianteRecursivo(docBuscar);
 Estudiante estIter = uni.buscarEstudianteIterativo(docBuscar);
@@ -85,7 +86,7 @@ System.out.println("Iterativo: " + (estIter != null ? estIter.obtenerInformacion
 // Array de estudiantes a ordenar
 Estudiante[] listaEstudiantes = {e1, e2};
 
-// Ordenamos por apellido
+// Ordenamos por apellido usando selection sort
 Estudiante[] estudiantesOrdenados = Universidad.ordenarEstudiantesPorApellido(listaEstudiantes);
 
 System.out.println("\n=== ESTUDIANTES ORDENADOS POR APELLIDO ===");
@@ -93,7 +94,7 @@ for (Estudiante e : estudiantesOrdenados) {
     System.out.println(e.getApellido() + ", " + e.getNombre());
 }
 
-//bscamos un estudiante por apellido
+//bscamos un estudiante por apellido mediante busqueda binaria(ordenado de antes)
 String apellidoBuscar = "Martinez";
 int indice = Universidad.busquedaBinariaEstudiantes(estudiantesOrdenados, apellidoBuscar);
 
