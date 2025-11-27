@@ -36,6 +36,8 @@ public class App {
  System.out.println("\n Profesores ");
  uni.buscarPorRol("Profesor");
 
+
+
  System.out.println(" ------------- ");
  System.out.println("\n Personal ");
  uni.buscarPorRol("Personal");
@@ -47,5 +49,7 @@ public class App {
         } else {
             System.out.println("No se encontró el miembro.");
         }
+
+
     }
 }
