@@ -26,7 +26,10 @@ private Profesor profesor;
     }
 
 
-
+ @Override
+    public String toString() {
+        return materiaNombre + " (Profesor: " + profesor.getNombre() + ")";
+    }
 
 
 
