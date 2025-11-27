@@ -2,10 +2,12 @@ public class Materia {
 
     private String materiaNombre;
     private Profesor profesor;
+     private double nota; // nueva
 
-    public Materia(String materiaNombre, Profesor profesor) {
+    public Materia(String materiaNombre, Profesor profesor, double nota) {
         this.materiaNombre = materiaNombre;
         this.profesor = profesor;
+         this.nota = nota;
     }
 
     public String getMateriaNombre() {
@@ -23,7 +25,11 @@ public class Materia {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
-
+    public double getNota() 
+    { return nota; }
+    public void setNota(double nota) 
+    { this.nota = nota; }
+    
     @Override
     public String toString() {
         return materiaNombre + " (Profesor: " + profesor.getNombre() + ")";

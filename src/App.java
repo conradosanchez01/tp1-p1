@@ -1,50 +1,64 @@
 public class App {
-    public static void main(String[] args) throws Exception {
-        
+    public static void main(String[] args) {
 
+     
+        // Profesores
+   
+        Profesor prof1 = new Profesor("Carlos", "Gomez", 45, "25000333",
+                                      "Matemática", 20, "Álgebra y Cálculo");
+        Profesor prof2 = new Profesor("Ana", "Lopez", 38, "30000444",
+                                      "Medicina", 15, "Anatomía y Fisiología");
+
+       
+        // Materias con notas
+      
+        Materia m1 = new Materia("Álgebra", prof1, 8.5);
+        Materia m2 = new Materia("Cálculo", prof1, 9.0);
+        Materia m3 = new Materia("Anatomía", prof2, 9.5);
+        Materia m4 = new Materia("Fisiología", prof2, 8.0);
+
+       
+        // Estudiantes con array de materias
+       
+        Materia[] materiasLucas = {m1, m2};
+        Estudiante e1 = new Estudiante("Lucas", "Perez", 20, "45000111",
+                                       "Ingeniería en Sistemas", materiasLucas);
+
+        Materia[] materiasMaria = {m3, m4};
+        Estudiante e2 = new Estudiante("María", "Martinez", 21, "45000222",
+                                       "Medicina", materiasMaria);
+
+     
+        // Personal
+    
+        Personal per1 = new Personal("Marta", "Lopez", 38, "40000444",
+                                     "Administración", "Secretaria", "2015");
+
+       
+        // Universidad y agregamos miembros
+    
         Universidad uni = new Universidad();
-
-        // miembros
-
-        Estudiante e1 = new Estudiante("Lucas", "Perez", 20, "45000111", "Ingeniería en Sistemas", 8.5, 6);
-        Estudiante e2 = new Estudiante("María", "Martinez", 22, "43000222", "Medicina", 9.0, 8);
-
-        Profesor p1 = new Profesor("Carlos", "Gomez", 45, "25000333", "Matemática", 20, "Álgebra y Cálculo");
-        Profesor p2 = new Profesor("Ana", "Lopez", 50, "27000444", "Medicina", 25, "Anatomía y Fisiología");
-
-        Personal per1 = new Personal("Marta", "Lopez", 38, "30000444", "Administración", "Secretaria", "2015");
-        Personal per2 = new Personal("Juan", "Ramirez", 30, "31000555", "Mantenimiento", "Técnico", "2018");
-
         uni.agregarMiembro(e1);
         uni.agregarMiembro(e2);
-        uni.agregarMiembro(p1);
-        uni.agregarMiembro(p2);
+        uni.agregarMiembro(prof1);
+        uni.agregarMiembro(prof2);
         uni.agregarMiembro(per1);
-        uni.agregarMiembro(per2);
 
-        System.out.println("----------------------- "); // polimorf
-        System.out.println("Todos los miembros: ");
+       
+        // Listamos todos los miembros
+        
+        System.out.println("=== LISTA DE MIEMBROS ===");
         uni.listarMiembros();
 
+       
+        // Mostramos promedios iterativo y recursivo
         
-        System.out.println("Solo estudiantes ");
-        uni.buscarPorRol("Estudiante");
-
-        System.out.println("------------- ");
-        System.out.println("SOlo Profesores ");
-        uni.buscarPorRol("Profesor");
-
-         System.out.println("------------- ");
-        System.out.println("Solo Personal ");
-        uni.buscarPorRol("Personal");
-System.out.println("----------------------- ");
-        // Buscar miembro por documento
-        MiembroUniversidad encontrado = uni.buscarPorDocumento("25000333");
-        if (encontrado != null) {
-            System.out.println("Miembro encontrado: " + encontrado.obtenerInformacionCompleta()); // poli
-        } else {
-            System.out.println("No se encontró el miembro.");
+        System.out.println("\n=== PROMEDIOS DE ESTUDIANTES ===");
+        for (MiembroUniversidad m : new MiembroUniversidad[]{e1, e2}) {
+            Estudiante est = (Estudiante) m;
+            System.out.println(est.getNombre() + ":");
+            System.out.println("Promedio iterativo: " + est.calcularPromedioIterativo());
+            System.out.println("Promedio recursivo: " + est.obtenerPromedioRecursivo());
         }
-
     }
 }
