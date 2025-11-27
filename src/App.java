@@ -36,10 +36,16 @@ public class App {
  System.out.println("\n Profesores ");
  uni.buscarPorRol("Profesor");
 
+ System.out.println(" ------------- ");
+ System.out.println("\n Personal ");
+ uni.buscarPorRol("Personal");
 
-
-
-
-
+//Buscar miembro por documento
+ MiembroUniversidad encontrado = uni.buscarPorDocumento("25000333");
+        if (encontrado != null) {
+            System.out.println("Miembro encontrado: " + encontrado.obtenerInformacionCompleta()); //poli
+        } else {
+            System.out.println("No se encontró el miembro.");
+        }
     }
 }
