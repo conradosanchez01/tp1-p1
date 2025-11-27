@@ -1,5 +1,4 @@
 
-
 public class Profesor  extends Persona  implements MiembroUniversidad
 {
  private String especialidad;
@@ -47,4 +46,20 @@ public class Profesor  extends Persona  implements MiembroUniversidad
     this.materiasAsignadas = materiasAsignadas;
    }
 
+    @Override
+    public String obtenerRol() {
+        return "profesor";
+    }
+    @Override
+    public String obtenerInformacionCompleta() {
+        return "profesor: " +getNombre() + " " + getApellido() +
+        "-especialidad: " +especialidad +
+        "-años de experiencia: " +añosExperiencia +
+        "-materias: " +materiasAsignadas;
+    }
+
+    @Override
+    public String toString() {
+        return obtenerInformacionCompleta();
+    }
 }
