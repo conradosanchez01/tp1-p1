@@ -84,4 +84,58 @@ public class Universidad {
             System.out.println("No se encontraron miembros con el rol: " + rol);
         }
     }
+
+
+
+// version recursiva
+public int contarEstudiantesRecursivo(String carrera) {
+    return contarEstudiantesRecursivoHelper(inicio, carrera);
+}
+
+// recursivo que recorre la lista
+private int contarEstudiantesRecursivoHelper(NodoMiembro nodo, String carrera) {
+    if (nodo == null) return 0; // caso base: fin de la lista
+    int count = 0;
+    if (nodo.dato instanceof Estudiante) {
+        Estudiante e = (Estudiante) nodo.dato;
+        if (e.getCarrera().equalsIgnoreCase(carrera)) {
+            count = 1;
+        }
+    }
+    return count + contarEstudiantesRecursivoHelper(nodo.siguiente, carrera);
+}
+
+
+// iterativa
+public int contarEstudiantesIterativo(String carrera) {
+    int count = 0;
+    NodoMiembro aux = inicio;
+    while (aux != null) {
+        if (aux.dato instanceof Estudiante) {
+            Estudiante e = (Estudiante) aux.dato;
+            if (e.getCarrera().equalsIgnoreCase(carrera)) {
+                count++;
+            }
+        }
+        aux = aux.siguiente;
+    }
+    return count;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

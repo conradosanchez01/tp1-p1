@@ -60,5 +60,19 @@ public class App {
             System.out.println("Promedio iterativo: " + est.calcularPromedioIterativo());
             System.out.println("Promedio recursivo: " + est.obtenerPromedioRecursivo());
         }
-    }
+    
+    
+ System.out.println("--");
+    System.out.println("Cantidad de estudiantes en Ingeniería en Sistemas (iterativo): " +
+                   uni.contarEstudiantesIterativo("Ingeniería en Sistemas"));
+
+    System.out.println("Cantidad de estudiantes en Ingeniería en Sistemas (recursivo): " +
+                   uni.contarEstudiantesRecursivo("Ingeniería en Sistemas"));
+
 }
+
+
+
+
+}
+
